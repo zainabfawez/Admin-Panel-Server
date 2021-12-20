@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Controllers\api\AuthController;
-
+use App\Http\Controllers\api\AdminController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -27,4 +27,14 @@ Route::group([
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/user-profile', [AuthController::class, 'userProfile']);    
+});
+
+Route::group([
+    'middleware' => 'api',
+    'middleware' => 'auth.admin',
+    'prefix' => 'admin'
+
+], function ($router) {
+    Route::get('/get_filtered_customers', [AdminController::class, 'filterCustomers']);    
+   
 });

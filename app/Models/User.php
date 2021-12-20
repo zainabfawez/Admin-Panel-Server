@@ -62,4 +62,9 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims() {
         return [];
     }    
+    
+    public function scopeSearch($query, $search_word){
+        return $query->where('first_name','LIKE' ,"$search_word")
+                    ->orWhere('email','LIKE' , "$search_word");
+    }
 }
