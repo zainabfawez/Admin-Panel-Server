@@ -62,6 +62,14 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims() {
         return [];
     }    
+
+    public function scopeNotMe($query, $id){
+        return $query->where('id','<>', $id);
+    }
+
+    public function scopeIsCustomer($query){
+        return $query->where('user_type','=',2);
+    }
     
     public function scopeSearch($query, $search_word){
         return $query->where('first_name','LIKE' ,"$search_word")

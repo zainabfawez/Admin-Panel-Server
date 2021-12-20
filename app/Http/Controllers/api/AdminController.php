@@ -14,14 +14,17 @@ class adminController extends Controller
 {
     public function filterCustomers(Request $request){
         $user_id = auth()->user()->id;
-        $search_word ='%'.$request->input."%";
-        $user_type = 2;
-        //$pagination_option = $request->pagination_option;
-        $customers = User::select('first_name','last_name')
-                                ->where('user_type', $user_type)
-                                ->search($search_word)
-                                ->get();
-        if($customers){
+        $search_word ="%".$request->input."%";
+        $pagination_option = $request->numberOfRows;
+        if ($search_word != ""){
+            $customers = User::Search($search_word)
+                                ->select("first_name", "last_name", "email")
+                                ->notMe($user_id)
+                                ->isCustomer()
+                                ->paginate($pagination_option);
+                          
+        }
+        if(count($customers)!=0){
             return response()->json($customers, 200);
         }else{
             $response['status'] = "No customers matches your search";

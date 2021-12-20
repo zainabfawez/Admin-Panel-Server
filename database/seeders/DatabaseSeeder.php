@@ -47,5 +47,37 @@ class DatabaseSeeder extends Seeder
             "email" => "customer3@mail.com",
             "password" => '$2y$10$ItUhSjSsnUBOg8WPckLQxeA3IVlz6hjAD/BoHLcimYKPVYWiXBOXG',//qweqwe
           ]);
+
+          DB::table("users")->insert([ 
+            "user_type" => 2,      
+            "first_name" => "Hussein",
+            "last_name" => "Doulani",
+            "email" => "customer4@mail.com",
+            "password" => '$2y$10$ItUhSjSsnUBOg8WPckLQxeA3IVlz6hjAD/BoHLcimYKPVYWiXBOXG',//qweqwe
+          ]);
+
+          DB::table("users")->insert([ 
+            "user_type" => 2,      
+            "first_name" => "Zein",
+            "last_name" => "Rachidi",
+            "email" => "customer5@mail.com",
+            "password" => '$2y$10$ItUhSjSsnUBOg8WPckLQxeA3IVlz6hjAD/BoHLcimYKPVYWiXBOXG',//qweqwe
+          ]);
+
+          DB::table("users")->insert([ 
+            "user_type" => 2,      
+            "first_name" => "Khalil",
+            "last_name" => "Rachidi",
+            "email" => "customer6@mail.com",
+            "password" => '$2y$10$ItUhSjSsnUBOg8WPckLQxeA3IVlz6hjAD/BoHLcimYKPVYWiXBOXG',//qweqwe
+          ]);
+
+          DB::table("users")->insert([ 
+            "user_type" => 2,      
+            "first_name" => "Farah",
+            "last_name" => "Chakaron",
+            "email" => "customer7@mail.com",
+            "password" => '$2y$10$ItUhSjSsnUBOg8WPckLQxeA3IVlz6hjAD/BoHLcimYKPVYWiXBOXG',//qweqwe
+          ]);
     }
 }
