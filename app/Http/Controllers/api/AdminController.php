@@ -22,7 +22,6 @@ class adminController extends Controller
                                 ->notMe($user_id)
                                 ->isCustomer()
                                 ->paginate($pagination_option);
-                          
         }
         if(count($customers)!=0){
             return response()->json($customers, 200);
