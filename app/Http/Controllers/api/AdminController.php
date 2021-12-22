@@ -13,6 +13,7 @@ use Validator;
 class adminController extends Controller
 {
     public function filterCustomers(Request $request){
+
         $user_id = auth()->user()->id;
         $search_word ="%".$request->input."%";
         $pagination_option = $request->numberOfRows;
@@ -31,5 +32,5 @@ class adminController extends Controller
         }
 
     }
- // test test test
+ 
 }
