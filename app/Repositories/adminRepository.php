@@ -49,6 +49,11 @@ class AdminRepository{
         return $this->user->select('first_name', 'last_name', 'email');               
     }
 
+    //add paginate function ??
+
+    public function paginate($pagination_option){
+        return $this->user->paginate();
+    }
 }
 
 ?>
