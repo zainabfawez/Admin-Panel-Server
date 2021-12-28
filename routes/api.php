@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Controllers\api\AuthController;
-use App\Http\Controllers\api\AdminController;
+use App\Http\Controllers\api\CustomerController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -35,6 +35,6 @@ Route::group([
     'prefix' => 'admin'
 
 ], function ($router) {
-    Route::get('/get_filtered_customers', [AdminController::class, 'filterCustomers']);    
+    Route::get('/get_filtered_customers/{pagination_option}', [CustomerController::class, 'filterCustomers']);    
    
 });
